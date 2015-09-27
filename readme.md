@@ -95,10 +95,10 @@ module.exports = function (grunt) {
 	        htmlcompressor: {
 	            compile: {
 	                files: [{
-	                        expand: true,     // Enable dynamic expansion.
-	                        cwd: 'pages/src/',      // Src matches are relative to this path.
-	                        src: '*.html', // Actual pattern(s) to match.
-	                        dest: 'pages/min/',   // Destination path prefix.
+	                        expand: true,
+	                        cwd: 'pages/src/',
+	                        src: '*.html',
+	                        dest: 'pages/min/',
 	                    },
 	                ],
 	                options: {
