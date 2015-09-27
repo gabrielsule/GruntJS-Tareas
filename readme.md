@@ -4,15 +4,18 @@ Les dejo la lista paso a paso para concatenar y minificar los archivos JavaScrip
 
 
 ## instalar el cliente
-```npm install -g grunt-cli
+```
+npm install -g grunt-cli
 ```
 
 ## ir a la carpeta del proyecto
-```cd dummy
+```
+cd dummy
 ```
 
 ## inicializar el json
-```npm init
+```
+npm init
 ```
 
 ## package.json
@@ -40,12 +43,14 @@ Les dejo la lista paso a paso para concatenar y minificar los archivos JavaScrip
 ```
 
 ## instalar grunt
-```npm install grunt --save-dev
+```
+npm install grunt --save-dev
 ```
 
 ## instalar dependencias
-```npm install grunt-contrib-concat --save-dev
-    npm install grunt-contrib-uglify --save-dev
+```
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-uglify --save-dev
 ```
 
 ## modificar el gruntfile.js
@@ -97,6 +102,7 @@ module.exports = function (grunt) {
 
 
 ## ejecutar grunt
-```grunt default
+```
+grunt default
 ```
 
