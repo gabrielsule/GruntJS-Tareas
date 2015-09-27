@@ -1,6 +1,6 @@
 Gruntjs - ejemplo
 ======
-Les dejo la lista paso a paso para concatenar y minificar los archivos JavaScript de sus sites
+Les dejo la lista paso a paso para concatenar y minificar los archivos JavaScript y minificar los HTML de sus sites
 
 
 ## instalar el cliente
@@ -51,6 +51,7 @@ npm install grunt --save-dev
 ```
 npm install grunt-contrib-concat --save-dev
 npm install grunt-contrib-uglify --save-dev
+npm install grunt-htmlcompressor --save-dev
 ```
 
 ## modificar el gruntfile.js
@@ -88,21 +89,44 @@ module.exports = function (grunt) {
 					dest: 'js/min/'
 				}]
 			}
-		}
+		},
+		
+	        //minificarHTML
+	        htmlcompressor: {
+	            compile: {
+	                files: [{
+	                        expand: true,     // Enable dynamic expansion.
+	                        cwd: 'pages/src/',      // Src matches are relative to this path.
+	                        src: '*.html', // Actual pattern(s) to match.
+	                        dest: 'pages/min/',   // Destination path prefix.
+	                    },
+	                ],
+	                options: {
+	                    type: 'html',
+	                    preserveServerScript: true
+	                }
+	            }
+	        }        
 	 });
  
 	//lee tareas
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-htmlcompressor');
 
 	//ejecuta tareas
-	grunt.registerTask('default', ['concat', 'uglify']);
-};
+	grunt.registerTask('defaultJS', ['concat', 'uglify']);
+    	grunt.registerTask('defaultHTML', ['htmlcompressor']);};
 ```
 
 
-## ejecutar grunt
+## ejecutar grunt para JS
 ```
-grunt default
+grunt defaultJS
+```
+
+## ejecutar grunt para HTML
+```
+grunt defaultHTML
 ```
 
